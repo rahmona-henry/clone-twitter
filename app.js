@@ -1,4 +1,21 @@
 var bcrypt = require('bcrypt')
 var config = require('./config.js')
-var knex = config.knex
-var app = config.app
+
+
+module.exports = function(knex) {
+var app = config(knex)
+
+
+
+////////////// get routes ////////////
+
+app.get('/signIn', function(req, res){
+  res.render('signin')
+})
+
+
+
+
+
+return app
+}

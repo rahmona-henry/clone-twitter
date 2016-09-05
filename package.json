@@ -1,0 +1,31 @@
+{
+  "name": "clone-twitter",
+  "version": "1.0.0",
+  "description": "A web app that clones the basic functionality of Twitter. This was built as a group project at EDA.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rahmona-henry/clone-twitter.git"
+  },
+  "author": "Rahmona Henry",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rahmona-henry/clone-twitter/issues"
+  },
+  "homepage": "https://github.com/rahmona-henry/clone-twitter#readme",
+  "dependencies": {
+    "bcrypt": "^0.8.7",
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "express-hbs": "^1.0.3",
+    "express-sessions": "^1.0.6",
+    "hbs": "^4.0.0",
+    "knex": "^0.11.10",
+    "nodemon": "^1.10.2",
+    "pg": "^6.1.0"
+  }
+}
