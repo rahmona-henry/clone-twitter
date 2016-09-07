@@ -2,7 +2,7 @@ var bcrypt = require('bcrypt')
 var config = require('./config.js')
 
 
-module.exports = function(knex) {
+module.exports = function(knex) {it add tu
 var app = config(knex)
 
 
@@ -13,7 +13,7 @@ app.get('/signIn', function(req, res){
   res.render('signin')
 })
 
-
+bdfbfdbfgbfgbfgbf
 
 
 
