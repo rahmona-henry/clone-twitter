@@ -5,10 +5,9 @@ var KnexSessionsStore = require('connect-sessions-knex')(sessions)
 
 var app = express()
 var path = require('path')
-var knex = require('knex')
 var bodyParser = require('body-parser')
 
-app.use(express.static('views'))
+app.use(express.static('public'))
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'hbs')
 app.use(bodyParser.uelencoded({extended:true}))
