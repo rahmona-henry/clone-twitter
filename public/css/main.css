@@ -41,3 +41,31 @@ p{
     box-sizing: border-box;
     padding-left: 10px;
 }
+
+/*------Misc'-------------*/
+ #tube {
+   color:#fff;
+   font-weight: 100;
+ }
+
+a {
+  color:#fff;
+}
+
+a:hover{
+  color: #fff;
+}
+
+form {
+  margin-bottom: 0;
+}
+
+h2, h6 {
+  font-family: 'Roboto Slab', serif;
+  font-weight: 400;
+  color:#fff;
+}
+
+h6 {
+  font-weight: 100;
+}
