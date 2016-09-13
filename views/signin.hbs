@@ -1,15 +1,9 @@
-<html>
-<head>
-  <title>Sign in to Critter</title>
-  <link rel=stylesheet type='text/css' href='main.css'></link>
-</head>
-<body>
-  <h2>Sign in to Critter!</h2>
+<div><img id='logo' src='./img/critter_logo.png' alt='critter logo'></div>
+<h2>Welcome to Critter</h2>
+<h6>Login to your account</h6>
   <form action='/signIn' method='POST'>
-    <input type='text' placeholder='email' name='email' autofocus></input>
-    <input type='password' placeholder='password' name='password'></input>
-    <input type='submit' value='login'></input>
+    <input type='text' placeholder='email' name='email' autofocus class='formField'></input>
+    <input type='password' placeholder='password' name='password' class='formField'></input>
+    <input type='submit' value='login' class='submitButton'></input>
   </form>
-    <a href='/signUp'>Sign Up</a>
-</body>
-</html>
+    <div id='signUp'>New to Critter?<a href='/signUp'>Sign Up</a></div>

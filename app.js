@@ -11,7 +11,7 @@ var app = config(knex)
 
 app.get('/', function(req,res){
   if(!req.session.userId){
-    res.redirect('signIn')
+    res.redirect('/signIn')
   } else {
     res.render('secret', {id: req.session.UserId, layout:'_layout'})
   }
