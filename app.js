@@ -21,7 +21,9 @@ app.get('/signIn', function(req, res){
   res.render('signin', {layout:'_layout'})
 })
 
-
+app.get('signUp', function (req, res) {
+  res.render('signUp', {layout:'_layout'})
+})
 
 
 
