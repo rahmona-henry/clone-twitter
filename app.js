@@ -46,7 +46,49 @@ app.get('/signOut', function(req, res){
   res.render('signOut', {layout:'_layout'})
 })
 
+///////////////POST ROUTES//////////////
 
+
+app.post('/signUp', function(req, res){
+  if(req.body.email===''){
+    res.redirect('/signUp')
+  }
+
+var hash = bcrypt.hashSync(req.body.password, 10)
+knex('users').insert({email: req.body.email, hashed_password: hash})
+  .then(function(data){
+    req.session.userId= data[0]
+    res.redirect('/secret')
+  })
+  .catch(function(error){
+    req.session.userId=0
+      res.redirect('/')
+  })
+})
+
+
+app.post('/signIn', function(req, res){
+    knex('users').where('email', req.body.email)
+    .then(function(data){
+      if(req.body.email ===''){
+        res.redirect('/signIn')
+      }
+      else if (bcrypt.compareSync(req.body, data[0].hashed_password)){
+        req.session.userId = data[0].id
+        res.redirect('/secret')
+        console.log('success! sign in happened by critter #' + req.session.userId +'!')
+      }
+      else {
+        console.log('incorrect password')
+        res.redirect('/signIn')
+      }
+    })
+    .catch(function(error){
+      console.log('There has been a problem', error)
+      req.session.userId = 0
+      res.redirect('/signUp')
+    })
+})
 
 return app
 }
