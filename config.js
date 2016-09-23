@@ -13,7 +13,7 @@ app.set('view engine', 'hbs')
 app.use(bodyParser.urlencoded({extended:true}))
 
 module.exports = function(knex) {
-  var store = new KnexSessionStore({ knex: knex})
+  var store = new KnexSessionStore({knex: knex})
   app.use(session({
     secret: 'ssshhhhhh! Top secret!',
     saveUninitialized: true,

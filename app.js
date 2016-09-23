@@ -55,6 +55,7 @@ app.post('/signUp', function(req, res){
   }
 
 var hash = bcrypt.hashSync(req.body.password, 10)
+console.log('this signUp data', req.body.email, req.body.password)
 knex('users').insert({email: req.body.email, hashed_password: hash})
   .then(function(data){
     console.log('this is data', data)
