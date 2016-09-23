@@ -54,13 +54,10 @@ app.post('/signUp', function(req, res){
     res.redirect('/signUp')
   }
 
-var hash = bcrypt.hashSync(req.body.password, 10)
-console.log('this signUp data', req.body.email, req.body.password)
+var hash = bcrypt.hashSync(req.body.hashed_password, 10)
 knex('users').insert({email: req.body.email, hashed_password: hash})
   .then(function(data){
-    console.log('this is data', data)
-    console.log('this is the data from sign-up data', data)
-    req.session.userId= data[0]
+    req.session.userId= req.body.email
     res.redirect('/secret')
   })
   .catch(function(error){
