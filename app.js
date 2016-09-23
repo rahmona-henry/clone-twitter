@@ -58,11 +58,12 @@ var hash = bcrypt.hashSync(req.body.password, 10)
 knex('users').insert({email: req.body.email, hashed_password: hash})
   .then(function(data){
     console.log('this is data', data)
+    console.log('this is the data from sign-up data', data)
     req.session.userId= data[0]
     res.redirect('/secret')
   })
   .catch(function(error){
-    req.session.userId=0
+    req.session.userId = 0
       res.redirect('/')
   })
 })
