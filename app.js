@@ -29,7 +29,7 @@ app.get('/secret', function(req, res){
     res.render('secret', {userId:req.session.userId, layout:'_layout'})
 })
 
-app.get('newTweet', function(req,res){
+app.get('/newTweet', function(req,res){
   if(!req.session.userId){
     res.redirect('/signIn')
   } else {
