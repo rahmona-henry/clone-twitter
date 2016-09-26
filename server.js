@@ -10,6 +10,6 @@ var knex = require('knex')({
 var app = require('./app')(knex)
 var port = process.env.PORT || 3000
 
-app.listen(3000, function() {
+app.listen(port, function() {
   console.log('Get tweeting on port 3000!')
 })

@@ -12,7 +12,7 @@ module.exports = {
   test: {
     client: 'pg',
     connection: {
-      database: 'twitter_clone_dev',
+      database: 'twitter_clone_test',
     }
     },
 

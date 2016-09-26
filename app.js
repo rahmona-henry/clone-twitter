@@ -50,18 +50,19 @@ app.get('/signOut', function(req, res){
 
 
 app.post('/signUp', function(req, res){
-  if(req.body.email===''){
-    res.redirect('/signUp')
-  }
+  // if(req.body.email===''){
+  //   res.redirect('/signUp')
+  // }
 
 var hash = bcrypt.hashSync(req.body.hashed_password, 10)
-knex('users').insert({email: req.body.email, hashed_password: hash})
+console.log(req.body.hashed_password, req.body.email)
+knex('users').insert({email: req.body.email, password:hash})
   .then(function(data){
-    req.session.userId= req.body.email
-    res.redirect('/secret')
+    // req.session.userId= req.body.email
+    res.render('/secret')
   })
   .catch(function(error){
-    req.session.userId = 0
+    // req.session.userId = 0
       res.redirect('/')
   })
 })
