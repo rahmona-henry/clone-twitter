@@ -1,0 +1,9 @@
+<div><img id='logo' src='./img/critter_logo.png' alt='critter logo'></div>
+<h2>Welcome Critter #{{id}}</h2>
+<h4>Post a new tweet</h4>
+<form action='/newTweet' method='POST'>
+  <input type='text' name='tweeted' placeholder='Tweet here..' autofocus class='formField'></input>
+  <input type='submit' value='submit' class='submitButton'></input>
+</form>
+<a href='/allTweets'>View all Tweets</a><span id='tube'> | </span>
+<a href='/signOut'>Sign Out</a>
