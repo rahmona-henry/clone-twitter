@@ -58,12 +58,12 @@ var hash = bcrypt.hashSync(req.body.hashed_password, 10)
 console.log(req.body.hashed_password, req.body.email)
 knex('users').insert({email: req.body.email, password:hash})
   .then(function(data){
-    // req.session.userId= req.body.email
-    res.render('/secret')
+    req.session.userId= req.body.email
+    res.redirect('/secret')
   })
   .catch(function(error){
-    // req.session.userId = 0
-      res.redirect('/')
+    req.session.userId = 0
+      res.redirect('signIn')
   })
 })
 
