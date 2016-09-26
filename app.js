@@ -26,11 +26,7 @@ app.get('/signUp', function (req, res) {
 })
 
 app.get('/secret', function(req, res){
-  if(!req.session.userId) {
-    res.redirect('/signIn')
-  } else {
     res.render('secret', {userId:req.session.userId, layout:'_layout'})
-  }
 })
 
 app.get('newTweet', function(req,res){
@@ -50,13 +46,12 @@ app.get('/signOut', function(req, res){
 
 
 app.post('/signUp', function(req, res){
-  // if(req.body.email===''){
-  //   res.redirect('/signUp')
-  // }
+  if(req.body.email===''){
+    res.redirect('/signUp')
+  }
 
 var hash = bcrypt.hashSync(req.body.hashed_password, 10)
-console.log(req.body.hashed_password, req.body.email)
-knex('users').insert({email: req.body.email, password:hash})
+knex('users').insert({email: req.body.email, password:hash, userName:req.body.userName})
   .then(function(data){
     req.session.userId= req.body.email
     res.redirect('/secret')
