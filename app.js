@@ -37,6 +37,17 @@ app.get('/newTweet', function(req,res){
   }
 })
 
+app.get('/allTweets', function(req, res){
+  if(!req.session.userId){
+    res.redirect('signIn')
+  } else {
+    knex.select().table('tweetTable')
+    .then(function(data){
+      res.render('viewAllTweets', {userId: req.session.userId, data: data, layout: '_layout'})
+    })
+  }
+})
+
 app.get('/signOut', function(req, res){
   req.session.destroy()
   res.render('signOut', {layout:'_layout'})

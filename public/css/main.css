@@ -120,3 +120,38 @@ input{
 }
 
 /*---------creetPostConatiner------*/
+
+.creetPostContainer{
+  background: #fff;
+  padding:20px;
+  padding-bottom:1px;
+  text-align:left;
+  font-size: 16px;
+  border-radius: 8px;
+  margin-bottom:10px
+}
+
+.creetPostContainer p {
+  color: #000;
+}
+
+
+
+#postNewTweet a{
+  width:230px;
+  height:45px;
+  font-size: 18px;
+  color: #fff;
+  font-weight: 400;
+  background-color: transparent;
+  border:1px solid #fff;
+  cursor: pointer;
+  border-radius: 3px;
+  text-decoration: none;
+  padding:10px;
+}
+
+#postNewTweet a:hover{
+  background-color: #fff;
+  color: #ce5044
+}
