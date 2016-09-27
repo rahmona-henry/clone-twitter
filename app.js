@@ -87,7 +87,8 @@ app.post('/signIn', function(req, res){
 })
 
 app.post('/newTweet', function(req, res){
-  knex('tweeted').insert({tweeted:req.body.tweeted, userId:req.session.userId })
+  console.log('hello',req.body.tweeted, req.session.userId)
+  knex('tweetTable').insert({tweeted:req.body.tweeted, userId:req.session.userId })
   .then(function(data){
     res.redirect('allTweets')
     console.log('Success! Tweet posted by Critter #' + req.session.UserId + '!')
