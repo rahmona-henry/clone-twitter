@@ -48,6 +48,19 @@ app.get('/allTweets', function(req, res){
   }
 })
 
+app.get('/user/:id', function (req, res){
+  // if(!req.session.userId){
+  // //   res.redirect('/signIn')
+  // // }
+  // else{
+  console.log('this is userId and req.params.id', userId, req.params.id)
+    knex('tweetTable').where('userId', req.params.id)
+    .then(function(data){
+      res.render('userProfileAndTweets', {userId:req.params.id,data:data})
+    })
+  // }
+})
+
 app.get('/signOut', function(req, res){
   req.session.destroy()
   res.render('signOut', {layout:'_layout'})
@@ -81,6 +94,7 @@ app.post('/signIn', function(req, res){
         res.redirect('/signIn')
       }
       else if (bcrypt.compareSync(req.body, data[0].hashed_password)){
+        console.log('this is data', data)
         req.session.userId = data[0].id
         res.redirect('/secret')
         console.log('success! sign in happened by critter #' + req.session.userId +'!')
